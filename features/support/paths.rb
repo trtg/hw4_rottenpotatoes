@@ -18,6 +18,16 @@ module NavigationHelpers
       #'/'
     when /the edit page for "(.*)"$/
         edit_movie_path(Movie.find_by_title($1))
+    when /the details page for "(.*)"/
+        movie_path(Movie.find_by_title($1))
+    when /the Similar Movies page for "(.*)"/
+        #print "LOOK AT ME!!!! #{$1}"
+        temp=movie_path(Movie.find_by_title($1))
+        "#{temp}/similar_movies"
+    #when /the Similar Movies page for "(.*)"/
+    #    movie_path(Movies.find_by_title($1))
+        #"#{temp}/similar_movies/"
+    #Then I should be on the Similar Movies page for "Star Wars"
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
