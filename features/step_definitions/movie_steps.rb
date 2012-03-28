@@ -65,3 +65,5 @@ Then /the director of "(.*)" should be "(.*)"/ do |movie_title,movie_director|
         assert imovie[:director]==movie_director
     end
 end
+
+

@@ -35,6 +35,11 @@ class MoviesController < ApplicationController
   end
 
   def similar_movies
+    #print " params[:director] is #{params[:director]} of length #{params[:director].length} "
+    if params[:director].length==0
+        flash[:notice] = "'#{params[:title]}' has no director info"
+        redirect_to movies_path
+    end
     @movies = Movie.find_all_by_director(params[:director])
   end
   def create
